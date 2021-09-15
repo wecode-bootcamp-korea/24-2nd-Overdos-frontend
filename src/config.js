@@ -11,3 +11,4 @@ export const SURVEY_RESULT_DETAIL_API = `${HYUNSOO_BASE_URL}/survey/result?surve
 
 export const REVIEW_API = '/data/reviewData.json';
 export const RECOMMEND_API = `${HYUNSOO_BASE_URL}/users/login`;
+export const DETAIL_ADD_CART_API = 'http://10.58.2.22:8000/orders/cart';
