@@ -9,6 +9,7 @@ import Review from './pages/Review/Review';
 import Profile from 'pages/Profile/Profile';
 import Cart from './pages/Cart/Cart';
 import SurveyResult from 'pages/SurveyResult/SurveyResult';
+import Products from './pages/Products/Products';
 
 const Routes = () => {
   return (
@@ -27,6 +28,7 @@ const Routes = () => {
               <Route exact path="/review" component={Review} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/product" component={Products} />
               <Footer />
             </>
           )}
