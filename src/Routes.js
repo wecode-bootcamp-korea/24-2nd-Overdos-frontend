@@ -10,6 +10,7 @@ import Profile from 'pages/Profile/Profile';
 import Cart from './pages/Cart/Cart';
 import SurveyResult from 'pages/SurveyResult/SurveyResult';
 import Products from './pages/Products/Products';
+import Survey from './pages/Survey/Survey/Survey';
 
 const Routes = () => {
   return (
@@ -29,6 +30,8 @@ const Routes = () => {
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/product" component={Products} />
+              <Route exact path="/survey" component={Survey} />
+
               <Footer />
             </>
           )}
