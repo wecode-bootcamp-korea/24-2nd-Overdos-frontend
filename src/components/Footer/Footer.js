@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { color } from 'styles/color';
+import { FILLING_INFO, CS_INFO } from './data';
 
-const MainFooter = () => {
+const CommonFooter = () => {
   return (
     <Footer>
       <Container>
@@ -25,39 +26,33 @@ const MainFooter = () => {
           </NavUl>
         </Nav>
         <Content>
-          <ContentPilly>
-            <ContentPillyTitle>Filling</ContentPillyTitle>
-            <ContentPillyPtag>
-              (주)오버도즈 | 사업자번호: 123-45-67890 | 대표: 김영호
-            </ContentPillyPtag>
-            <ContentPillyPtag>개인정보취급담당자: 최현수</ContentPillyPtag>
-            <ContentPillyPtag>
-              서울특별시 강남구 테헤란로 427, 3층 | 연구소: 서울특별시 강남구
-              테헤란로 427, 3층
-            </ContentPillyPtag>
-            <ContentPillyPtag>
-              통신판매업신고: 제 2020-서울강남-03029 호
-              <ContentPillySpan>사업자정보확인</ContentPillySpan>
-            </ContentPillyPtag>
-            <ContentPillyPtag>
-              유통판매업신고: 제 2018-0107314 호
-            </ContentPillyPtag>
-            <ContentPillyPtag>
-              건강기능식품판매업신고: 제 2018-0107318 호
-            </ContentPillyPtag>
-          </ContentPilly>
-          <ContentCs>
-            <ContentPillyTitle>고객센터</ContentPillyTitle>
-            <ContentPillyPtag>
-              고객문의: cs@overdose.us | 전화: 02-1234-5678
-            </ContentPillyPtag>
-            <ContentPillyPtag>
-              상담시간: 평일 10:00~17:00 (점심시간 12:00~14:00)
-            </ContentPillyPtag>
-            <ContentPillyPtag>
-              제휴문의: marketing@overdose.us | 전화: 02-1234-5678
-            </ContentPillyPtag>
-          </ContentCs>
+          {FILLING_INFO.map((data, idx) => {
+            return (
+              <ContentPilly key={idx}>
+                <ContentPillyTitle>{data.title}</ContentPillyTitle>
+                <ContentPillyPtag>{data.enterprise}</ContentPillyPtag>
+                <ContentPillyPtag>{data.personalInfo}</ContentPillyPtag>
+                <ContentPillyPtag>{data.address}</ContentPillyPtag>
+                <ContentPillyPtag>
+                  {data.mailSale}
+                  <ContentPillySpan>{data.retailSaleCheck}</ContentPillySpan>
+                </ContentPillyPtag>
+                <ContentPillyPtag>{data.retailSale}</ContentPillyPtag>
+                <ContentPillyPtag>{data.healthCareSale}</ContentPillyPtag>
+              </ContentPilly>
+            );
+          })}
+
+          {CS_INFO.map((data, idx) => {
+            return (
+              <ContentCs key={idx}>
+                <ContentPillyTitle>{data.title}</ContentPillyTitle>
+                <ContentPillyPtag>{data.csContact}</ContentPillyPtag>
+                <ContentPillyPtag>{data.csTime}</ContentPillyPtag>
+                <ContentPillyPtag>{data.csInquire}</ContentPillyPtag>
+              </ContentCs>
+            );
+          })}
         </Content>
         <CopyRight>ⓒ Overdose Inc. All Rights Reserved.</CopyRight>
       </Container>
@@ -139,4 +134,4 @@ const CopyRight = styled(ContentPillyPtag)`
   padding: 18px 0 25px;
 `;
 
-export default MainFooter;
+export default CommonFooter;
