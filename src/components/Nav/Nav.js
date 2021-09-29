@@ -5,40 +5,33 @@ import LoginAndOut from './LoginAndOut';
 import { MENU_LIST } from './data';
 
 const Nav = () => {
-  const [selectNavMenu, setSelectNavMenu] = useState(0);
+  const [selectedNavMenu, setSelectedNavMenu] = useState(0);
   const history = useHistory();
 
-  const goHome = () => {
-    history.push('/');
+  const goMenu = (push, menuId) => {
+    history.push(push);
+    setSelectNavMenu(menuId);
   };
 
-  const goMenu = data => {
-    history.push(data.push);
-    setSelectNavMenu(data.id);
-  };
-
-  const goLogin = () => {
-    history.push('/signin');
-    setSelectNavMenu(5);
-  };
-
-  console.log(localStorage.getItem('username'));
   return (
     <NavWrapper>
       <NavContent>
-        <Logo onClick={goHome}>Filling</Logo>
+        <Logo onClick={() => goMenu('/', 0)}>Filling</Logo>
         <NavMenuList>
           {MENU_LIST.map(data => (
             <NavMenu
               key={data.id}
               id={data.id}
               selectNavMenu={selectNavMenu}
-              onClick={() => goMenu(data)}
+              onClick={() => goMenu(data.push, data.id)}
             >
               {data.title}
             </NavMenu>
           ))}
-          <LoginAndOut selectNavMenu={selectNavMenu} goLogin={goLogin} />
+          <LoginAndOut
+            selectNavMenu={selectNavMenu}
+            goMenu={() => goMenu('/signin', 5)}
+          />
         </NavMenuList>
       </NavContent>
     </NavWrapper>
@@ -78,7 +71,7 @@ const NavMenuList = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 576px;
+  width: 400px;
 `;
 
 const NavMenu = styled.div`
