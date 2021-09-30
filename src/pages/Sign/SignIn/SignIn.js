@@ -37,7 +37,7 @@ const SignIn = () => {
           localStorage.setItem('user_name', response.username);
           localStorage.setItem('user_id', response.user_id);
           alert(`${response.username}님 환영합니다.`);
-          history.push('/signup');
+          history.push('/');
         } else if (response.message === 'INVALID_PASSWORD') {
           alert('잘못된 비밀번호입니다.');
         } else if (response.message === 'INVALID_USER') {
@@ -76,7 +76,8 @@ const SignIn = () => {
   return (
     <CenterAlignment>
       <SignInForm>
-        <Title>Filling</Title>
+        {/* <Title>Filling</Title> */}
+        <TitleImage />
         <InputBoxForm>
           {SIGN_UP_DATA.map((data, index) => {
             return (
@@ -99,10 +100,12 @@ const SignIn = () => {
 
 export default SignIn;
 
-const Title = styled.h1`
+const TitleImage = styled.img.attrs({
+  src: 'images/pill.png',
+})`
+  padding: 30px 0px;
+  width: 50px;
   margin: 0 auto;
-  padding: 50px 0px 30px 0px;
-  font-size: 34px;
 `;
 
 const CenterAlignment = styled.div`
@@ -115,6 +118,7 @@ const SignInForm = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 460px;
+  margin: 120px 0px;
 `;
 
 const InputBoxForm = styled.form`
@@ -124,7 +128,7 @@ const InputBoxForm = styled.form`
 
 const SignInButton = styled.button`
   height: 50px;
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0px 10px 0px;
   border-radius: 300px;
   background-color: #ff5c36;
   font-size: 16px;
@@ -139,7 +143,7 @@ const KakaoSigninButton = styled(SignInButton)`
 `;
 
 const LightFont = styled.div`
-  margin: 0px 5px;
+  margin: 10px 5px;
   color: #ababab;
   font-size: 16px;
   cursor: pointer;
