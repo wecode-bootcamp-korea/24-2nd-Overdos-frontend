@@ -8,20 +8,29 @@ import SignIn from './pages/Sign/SignIn/SignIn';
 import Review from './pages/Review/Review';
 import Profile from 'pages/Profile/Profile';
 import Cart from './pages/Cart/Cart';
+import SurveyResult from 'pages/SurveyResult/SurveyResult';
 
 const Routes = () => {
   return (
     <Router>
       <Nav />
       <Switch>
-        <Route exact path="/" component={Main} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/review" component={Review} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/surveyresult" component={SurveyResult} />
+        <Route
+          exact
+          path="*"
+          component={() => (
+            <>
+              <Route exact path="/" component={Main} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/review" component={Review} />
+              <Route exact path="/profile" component={Profile} />
+              <Footer />
+            </>
+          )}
+        />
       </Switch>
-      <Footer />
     </Router>
   );
 };
