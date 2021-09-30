@@ -19,4 +19,9 @@ export const MENU_LIST = [
     title: '장바구니',
     push: '/장바구니',
   },
+  {
+    id: 5,
+    title: 'MY 필링',
+    push: '/profile',
+  },
 ];

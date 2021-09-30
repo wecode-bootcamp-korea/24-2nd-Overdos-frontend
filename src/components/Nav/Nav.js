@@ -30,7 +30,7 @@ const Nav = () => {
           ))}
           <LoginAndOut
             selectedNavMenu={selectedNavMenu}
-            goMenu={() => goMenu('/signin', 5)}
+            goMenu={() => goMenu('/signin', 6)}
           />
         </NavMenuList>
       </NavContent>
