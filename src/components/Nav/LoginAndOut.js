@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LoginAndOut = ({ selectedNavMenu, goMenu }) => {
+  const location = useLocation();
+  const [isLogin, setIsLogin] = useState(localStorage.getItem('user_token'));
+
   const logOut = () => {
     alert('로그아웃이 완료되었습니다.');
     localStorage.removeItem('user_name');
@@ -9,12 +13,17 @@ const LoginAndOut = ({ selectedNavMenu, goMenu }) => {
     localStorage.removeItem('user_token');
   };
 
+  useEffect(() => {
+    const checkIsLogin = localStorage.getItem('user_token');
+    setIsLogin(checkIsLogin);
+  }, [location.pathname]);
+
   return (
     <LoginAndOutWrapper
       selectedNavMenu={selectedNavMenu}
-      onClick={() => (localStorage.getItem('user_name') ? logOut() : goMenu())}
+      onClick={() => (isLogin ? logOut() : goMenu())}
     >
-      {localStorage.getItem('user_name') ? '로그아웃' : '로그인'}
+      <div>{isLogin ? '로그아웃' : '로그인'}</div>
     </LoginAndOutWrapper>
   );
 };
