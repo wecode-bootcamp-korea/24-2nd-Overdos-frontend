@@ -10,7 +10,7 @@ const Nav = () => {
 
   const goMenu = (push, menuId) => {
     history.push(push);
-    setSelectNavMenu(menuId);
+    setSelectedNavMenu(menuId);
   };
 
   return (
@@ -22,14 +22,14 @@ const Nav = () => {
             <NavMenu
               key={data.id}
               id={data.id}
-              selectNavMenu={selectNavMenu}
+              selectedNavMenu={selectedNavMenu}
               onClick={() => goMenu(data.push, data.id)}
             >
               {data.title}
             </NavMenu>
           ))}
           <LoginAndOut
-            selectNavMenu={selectNavMenu}
+            selectedNavMenu={selectedNavMenu}
             goMenu={() => goMenu('/signin', 5)}
           />
         </NavMenuList>
@@ -77,7 +77,7 @@ const NavMenuList = styled.div`
 const NavMenu = styled.div`
   padding-bottom: 3px;
   border-bottom: ${props =>
-    props.id === props.selectNavMenu && '1px solid black'};
+    props.id === props.selectedNavMenu && '1px solid black'};
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
