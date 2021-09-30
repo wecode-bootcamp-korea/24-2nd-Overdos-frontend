@@ -42,7 +42,7 @@ const Cart = () => {
     fetch(CART_API, {
       method: 'PUT',
       body: JSON.stringify({
-        user_id: 6,
+        user_id: localStorage.getItem('user_id'),
         product_id: product.product_id,
         quantity: product.quantity - 1,
       }),
