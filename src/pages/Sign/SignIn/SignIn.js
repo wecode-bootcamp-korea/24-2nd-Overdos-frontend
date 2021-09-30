@@ -35,8 +35,9 @@ const SignIn = () => {
         if (response.message === 'SUCCESS') {
           localStorage.setItem('user_token', response.ACCESS_TOKEN);
           localStorage.setItem('user_name', response.username);
-          alert(`${response.user_name}님 환영합니다.`);
-          history.push('/');
+          localStorage.setItem('user_id', response.user_id);
+          alert(`${response.username}님 환영합니다.`);
+          history.push('/signup');
         } else if (response.message === 'INVALID_PASSWORD') {
           alert('잘못된 비밀번호입니다.');
         } else if (response.message === 'INVALID_USER') {
