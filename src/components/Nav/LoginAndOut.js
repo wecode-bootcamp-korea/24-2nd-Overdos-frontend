@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LoginAndOut = ({ selectNavMenu, goMenu }) => {
+const LoginAndOut = ({ selectedNavMenu, goMenu }) => {
   const logOut = () => {
     alert('로그아웃이 완료되었습니다.');
     localStorage.removeItem('username');
@@ -9,7 +9,7 @@ const LoginAndOut = ({ selectNavMenu, goMenu }) => {
 
   return (
     <LoginAndOutWrapper
-      selectNavMenu={selectNavMenu}
+      selectedNavMenu={selectedNavMenu}
       onClick={() => (localStorage.getItem('username') ? logOut() : goMenu())}
     >
       {localStorage.getItem('username') ? '로그아웃' : '로그인'}
