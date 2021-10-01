@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import DetailPopUp from './DetailPopUp';
 import { DETAIL_API, DETAIL_ADD_CART_API } from 'config';
+import { useParams } from 'react-router-dom';
 
 const Detail = () => {
   const [detailData, setDetailData] = useState({});
   const [addCart, setAddCart] = useState(false);
   const [popUpVisible, setPopUpVisible] = useState(false);
+  const params = useParams();
 
   useEffect(() => {
-    fetch(DETAIL_API)
+    fetch(`${DETAIL_API}${params.id}`)
       .then(res => res.json())
       .then(res => setDetailData(res.Result));
   }, []);
@@ -41,25 +43,39 @@ const Detail = () => {
       });
   };
 
-  const { image, sub_name, name, description, price } = detailData;
+  const {
+    image,
+    sub_name,
+    name,
+    description,
+    price,
+    background_image,
+    sub_description,
+  } = detailData;
 
   const CheckObject = Object.keys(detailData).length;
+
+  console.log(detailData);
 
   return (
     <DetailWrapper>
       {CheckObject && (
-        <ImageWrapper src={image}>
-          <DetailInformation>
-            <Title>{sub_name}</Title>
-            <TitleBold>{name}</TitleBold>
-            <Description>{description}</Description>
-            <Price>30일분 | {price.toLocaleString()}원</Price>
-            <AddCartButton addCart={addCart} onClick={() => clickAddCart()}>
-              {addCart ? '장바구니 추가됨' : '장바구니 담기'}
-            </AddCartButton>
-          </DetailInformation>
-          {popUpVisible && <DetailPopUp addCart={addCart} name={name} />}
-        </ImageWrapper>
+        <>
+          <ImageWrapper src={background_image}>
+            <DetailInformation>
+              <Title>{sub_name}</Title>
+              <TitleBold>{name}</TitleBold>
+              <Description>{sub_description}</Description>
+              <Price>30일분 | {price.toLocaleString()}원</Price>
+              <AddCartButton addCart={addCart} onClick={() => clickAddCart()}>
+                {addCart ? '장바구니 추가됨' : '장바구니 담기'}
+              </AddCartButton>
+            </DetailInformation>
+            {popUpVisible && <DetailPopUp addCart={addCart} name={name} />}
+          </ImageWrapper>
+          <PillImage src={image} />
+          <DescriptionImage src={description} />
+        </>
       )}
     </DetailWrapper>
   );
@@ -69,6 +85,7 @@ export default Detail;
 
 const DetailWrapper = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   flex-direction: column;
 `;
@@ -80,7 +97,8 @@ const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 830px;
-  background: no-repeat center url(${props => props.src});
+  background: url(${props => props.src});
+  background-size: cover;
 `;
 
 const DetailInformation = styled.div`
@@ -100,6 +118,7 @@ const TitleBold = styled(Title)`
 `;
 
 const Description = styled.div`
+  width: 600px;
   font-size: 16px;
   margin: 35px 0px;
 `;
@@ -120,4 +139,17 @@ const AddCartButton = styled.button`
   box-shadow: 2px 2px 10px black;
   margin: 50px 0px 50px 0px;
   cursor: pointer;
+`;
+
+const PillImage = styled.img`
+  width: 200px;
+  position: absolute;
+  top: 200px;
+  right: 300px;
+`;
+
+const DescriptionImage = styled.img`
+  width: 500px;
+  padding-top: 50px;
+  margin: 0 auto;
 `;

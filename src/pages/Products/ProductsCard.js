@@ -65,7 +65,7 @@ class ProductsCard extends Component {
     // now: summary => array<string>
     return (
       <Container
-        onClick={() => this.props.history.push(`/product/detail?id=${id}`)}
+        onClick={() => this.props.history.push(`/product/detail/${id}`)}
         style={{ backgroundColor: `${this.props.cardColor}` }}
       >
         {/* 동적 라우팅으로 제품 상세 페이지로 이동해야 함 */}
