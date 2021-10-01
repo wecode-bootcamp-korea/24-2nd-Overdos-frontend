@@ -8,6 +8,7 @@ const LoginAndOut = ({ selectedNavMenu, goMenu }) => {
 
   const logOut = () => {
     alert('로그아웃이 완료되었습니다.');
+    setIsLogin('');
     localStorage.removeItem('user_name');
     localStorage.removeItem('user_id');
     localStorage.removeItem('user_token');
