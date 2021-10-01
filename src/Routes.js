@@ -11,6 +11,7 @@ import Cart from './pages/Cart/Cart';
 import SurveyResult from 'pages/SurveyResult/SurveyResult';
 import Products from './pages/Products/Products';
 import Survey from './pages/Survey/Survey/Survey';
+import Detail from 'pages/Detail/Detail';
 
 const Routes = () => {
   return (
@@ -31,7 +32,7 @@ const Routes = () => {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/product" component={Products} />
               <Route exact path="/survey" component={Survey} />
-
+              <Route exact path="/product/detail/:id" component={Detail} />
               <Footer />
             </>
           )}
