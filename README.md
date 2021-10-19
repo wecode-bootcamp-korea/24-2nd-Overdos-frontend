@@ -1,7 +1,7 @@
 # 필링 (필리 클론코딩)
 <img width="1166" alt="스크린샷 2021-10-03 오후 12 42 43" src="https://user-images.githubusercontent.com/79790476/135738706-67514425-3f53-4427-8a0b-4d13d9531b4c.png">
 
-### <a href="https://www.youtube.com/watch?v=pFEcf0sWcds&t=1s">필링 시연영상 보러가기</a>
+### <a href="https://www.youtube.com/watch?v=pFEcf0sWcds">필링 시연영상 보러가기</a>
 ## 오버도즈 팀원
 
 - F.E<br>
