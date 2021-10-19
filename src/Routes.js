@@ -8,9 +8,9 @@ import SignIn from './pages/Sign/SignIn/SignIn';
 import Review from './pages/Review/Review';
 import Profile from 'pages/Profile/Profile';
 import Cart from './pages/Cart/Cart';
+import Survey from './pages/Survey/Survey/Survey';
 import SurveyResult from 'pages/SurveyResult/SurveyResult';
 import Products from './pages/Products/Products';
-import Survey from './pages/Survey/Survey/Survey';
 import Detail from 'pages/Detail/Detail';
 
 const Routes = () => {
@@ -27,11 +27,11 @@ const Routes = () => {
               <Route exact path="/" component={Main} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/survey" component={Survey} />
               <Route exact path="/review" component={Review} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/product" component={Products} />
-              <Route exact path="/survey" component={Survey} />
               <Route exact path="/product/detail/:id" component={Detail} />
               <Footer />
             </>

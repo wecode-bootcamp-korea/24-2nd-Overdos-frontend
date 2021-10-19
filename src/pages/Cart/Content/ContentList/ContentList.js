@@ -28,7 +28,7 @@ const ContentList = ({
                 />
               </ContentCell>
               <ContentCellImg>
-                <ContentImg src={product.image} />
+                <ContentImg src={product.product_image} />
               </ContentCellImg>
               <ContentCellName>
                 <ContentRow>

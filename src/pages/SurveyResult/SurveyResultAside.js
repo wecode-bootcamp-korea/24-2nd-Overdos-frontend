@@ -56,9 +56,7 @@ const Pills = styled.div`
   font-size: 13px;
 `;
 
-const PillsImage = styled.img.attrs({
-  src: props => props.src,
-})`
+const PillsImage = styled.img`
   width: 36px;
   height: 36px;
   margin-right: 10px;

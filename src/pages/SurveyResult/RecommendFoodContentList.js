@@ -8,6 +8,7 @@ const RecommendFoodContentList = ({ foodList }) => {
         return (
           <RecommendFoodContent key={index}>
             <RecommendFoodImage src={food.url} />
+            {console.log(food.url)}
             <RecommendFoodName>{food.name}</RecommendFoodName>
             <DailyDose>{food.daily_dose}</DailyDose>
             {food.feature.map((data, index) => {
@@ -34,9 +35,7 @@ const RecommendFoodContent = styled.div`
   height: 210px;
 `;
 
-const RecommendFoodImage = styled.img.attrs({
-  src: props => props.src,
-})`
+const RecommendFoodImage = styled.img`
   width: 120px;
   height: 120px;
   margin-bottom: 10px;

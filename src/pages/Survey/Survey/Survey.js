@@ -81,15 +81,13 @@ export default class Survey extends Component {
 
   // 6번 질문에 대한 유효성 검증 함수
   validateQuestion6 = () => {
-    return (
-      this.state.height >= 100 && this.state.selectedSymptom2.length <= 250
-    );
+    return this.state.height >= 100 && this.state.height <= 250;
     // true: 유효성 검사 통과, false: 유효성 검사 실패
   };
 
   // 7번 질문에 대한 유효성 검증 함수
   validateQuestion7 = () => {
-    return this.state.weight >= 30 && this.state.selectedSymptom2.length <= 190;
+    return this.state.weight >= 30 && this.state.weight <= 190;
     // true: 유효성 검사 통과, false: 유효성 검사 실패
   };
 
@@ -146,7 +144,7 @@ export default class Survey extends Component {
   };
 
   postQuestion4Data = () => {
-    fetch('http://10.58.2.22:8000/survey/survey', {
+    fetch('http://10.58.2.22:8000/survey/symptom', {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('user_token'),
@@ -160,7 +158,7 @@ export default class Survey extends Component {
   };
 
   postQuestion5Data = () => {
-    fetch('http://10.58.2.22:8000/survey/survey', {
+    fetch('http://10.58.2.22:8000/survey/symptom', {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('user_token'),
@@ -287,6 +285,7 @@ export default class Survey extends Component {
 
   handleClickFinishBtn = () => {
     this.props.history.push('/surveyresult');
+    console.log(this.handleClickFinishBtn);
   };
 
   getContents = () => {
@@ -419,6 +418,7 @@ const Background = styled.div`
   height: 100vh;
   background: #fafafa;
   overflow: auto;
+  padding-top: 130px;
 `;
 
 const Container = styled.div`

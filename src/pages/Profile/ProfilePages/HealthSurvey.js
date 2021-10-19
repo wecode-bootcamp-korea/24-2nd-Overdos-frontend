@@ -10,7 +10,7 @@ const HealthSurvey = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch('http://10.58.0.51:8000/survey/resultlist', {
+    fetch('http://10.58.2.22:8000/survey/resultlist', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('user_token'),

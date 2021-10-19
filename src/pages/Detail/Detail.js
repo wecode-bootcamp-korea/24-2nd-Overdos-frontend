@@ -14,7 +14,7 @@ const Detail = () => {
     fetch(`${DETAIL_API}${params.id}`)
       .then(res => res.json())
       .then(res => setDetailData(res.Result));
-  }, []);
+  });
 
   const popUpAndClickBlock = () => {
     if (addCart) return;
